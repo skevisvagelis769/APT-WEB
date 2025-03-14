@@ -1,9 +1,8 @@
-.test{
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    /* height: 600px;
-    border: 1px solid black; */}
+.imgs{
+    text-align: center;
+}
 body{
     background-color: black;
+    width: 100%;
+   
 }
