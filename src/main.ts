@@ -7,11 +7,16 @@ img.setAttribute("id","1")
 document.body.appendChild(img)
 box.appendChild(img)
 img.innerHTML += '<br>' */
-
+let btn = document.getElementById('search') as HTMLButtonElement
+btn.addEventListener('click',()=>{
+    console.log("btn pressed")
+    window.location.assign('/srch')
+}) 
 class Main{
     constructor(){
     }   
     makeImg(){
+        //make this dynamic so that the img data gets entered as orisma in the func, mess about search (go to app.ts and make a new html directory for search)
         console.log("in make")
         let img:_image={
             id:1,date:"skou",dir:'./IMAGES/images.jpeg'
