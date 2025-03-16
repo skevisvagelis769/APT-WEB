@@ -13,13 +13,15 @@ btn.addEventListener('click',()=>{
     window.location.assign('/srch')
 }) 
 class Main{
+    public id:number
     constructor(){
+        this.id=0
     }   
     makeImg(){
         //make this dynamic so that the img data gets entered as orisma in the func, mess about search (go to app.ts and make a new html directory for search)
         console.log("in make")
         let img:_image={
-            id:1,date:"skou",dir:'./IMAGES/images.jpeg'
+            id:this.id,dir:'./IMAGES/images.jpeg'
         }
         var tmp = document.createElement(`img`)
         tmp.setAttribute("src",`${img.dir}`)
