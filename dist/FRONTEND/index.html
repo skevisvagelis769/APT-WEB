@@ -23,16 +23,12 @@
     .then(img=>{
         
         console.log(img.img[2])
-      //  test.textContent=`${img.img[2].dir}`
          img.img.forEach(element => {
             console.log(element)
             const listItem = document.createElement('img')
             const brk = document.createElement('br')
             console.log(element.dir)
             listItem.src="./IMAGES/"+element.dir
-            //listItem.src=listItem.src.fileURLToPath()
-            //console.log("this is the source",listItem.src)
-            //listItem.innerHTML="<br>"
             listEl.appendChild(listItem)
             listEl.appendChild(brk)
             listEl.style.textAlign="center"

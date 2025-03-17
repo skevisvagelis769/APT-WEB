@@ -70,6 +70,4 @@ app.use(express.static('srch'));
 app.get('/srch', (request, response) => {
     response.sendFile(path.join(_dirname, '../srch/srch.html'));
 });
-/* app.use('/srch',express.static(path.join(_dirname,'../srch/')))
-console.log(path.join(_dirname,'../srch')) */
 app.listen(port, address, () => console.log(`listening at http://${address}:${port}`));

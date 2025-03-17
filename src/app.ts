@@ -8,7 +8,6 @@ import mongoose from 'mongoose'
 import morgan from 'morgan'
 import fs from 'node:fs'
 import bodyParser from 'body-parser'
-import {index} from './controller/controller.js'
 mongoose.connect('mongodb://localhost:27017/imgs')
 const db = mongoose.connection
 db.on('error',(err)=>{
@@ -76,8 +75,4 @@ app.use(express.static('srch'))
 app.get('/srch',(request,response)=>{
     response.sendFile(path.join(_dirname,'../srch/srch.html'))
 })
-
-/* app.use('/srch',express.static(path.join(_dirname,'../srch/')))
-console.log(path.join(_dirname,'../srch')) */
-
 app.listen(port,address,()=>console.log(`listening at http://${address}:${port}`))
