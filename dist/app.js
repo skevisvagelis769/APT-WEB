@@ -50,7 +50,8 @@ app.get('/emp/index', (req, res) => {
 app.post('/emp/store', (req, res) => {
     console.log("in post");
     let tmp = new Image({
-        dir: req.body.dir
+        dir: req.body.dir,
+        date: req.body.date
     });
     console.log(req.body.dir);
     tmp.save()

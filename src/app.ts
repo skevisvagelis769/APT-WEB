@@ -57,6 +57,7 @@ app.post('/emp/store',(req,res)=>{
     console.log("in post")
     let tmp = new Image({
         dir: req.body.dir
+        ,date:req.body.date
     })
     console.log(req.body.dir)
     tmp.save()

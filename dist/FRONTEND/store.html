@@ -11,6 +11,10 @@
          <button id="Submit" value="Submit">Submit</button>
     </div>
     <script>
+        
+        let dt = new Date()
+        let dat = dt.getMonth()
+        console.log("this is the date",dat)
         let btn = document.getElementById("Submit")
         let input = document.getElementById("txt") 
         btn.addEventListener('click',()=>{
@@ -21,7 +25,7 @@
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({"dir": `${input.value}`})})
+                body: JSON.stringify({"dir": `${input.value}`,"date":dt})})
                 .then(response=>response.json()).then(data=>{
                     console.log(data)
                 })
