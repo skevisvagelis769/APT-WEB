@@ -28,10 +28,15 @@ console.log(_dirname)
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.use (bodyParser.json())
-app.use(express.static('dist'))
+app.use(express.static('dist/FRONTEND'))
 //root page,instantly sends to the main page with the images
 app.get('/',(request,response)=>{
-    response.sendFile('dist/index.html')
+    console.log("in the thang")
+    response.sendFile(path.join(_dirname,'/FRONTEND/index.html'))
+})
+app.get('/store',(request,response)=>{
+    response.sendFile(path.join(_dirname,'/FRONTEND/store.html'))
+    
 })
 //Main page,fetching DB images
 app.get('/emp/index',(req,res)=>{
@@ -45,6 +50,24 @@ app.get('/emp/index',(req,res)=>{
     .catch(error =>{
         res.json({
             message:'Error Occured!'
+        })
+    })
+})
+app.post('/emp/store',(req,res)=>{
+    console.log("in post")
+    let tmp = new Image({
+        dir: req.body.dir
+    })
+    console.log(req.body.dir)
+    tmp.save()
+    .then(response=>{
+        res.json({
+            message:"Saved!"
+        })
+    })
+    .catch(error=>{
+        res.json({
+            message:"Unable to save..."
         })
     })
 })

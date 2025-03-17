@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="search">
+        <input type="text" id="txt" placeholder="Enter dir to search" value="">
+         <button id="Submit" value="Submit">Submit</button>
+    </div>
+    <script>
+        let btn = document.getElementById("Submit")
+        let input = document.getElementById("txt") 
+        btn.addEventListener('click',()=>{
+            console.log("clicked and input val:",input.value)
+            fetch('/emp/store',{
+                method:"POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({"dir": `${input.value}`})})
+                .then(response=>response.json()).then(data=>{
+                    console.log(data)
+                })
+        })
+        
+    </script>
+</body>
+</html>
