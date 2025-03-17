@@ -1,10 +1,11 @@
 import express from 'express';
 import path from 'path';
+import Image from "./model/model.js";
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-mongoose.connect('mongodb://localhost:27017/tut');
+mongoose.connect('mongodb://localhost:27017/imgs');
 const db = mongoose.connection;
 db.on('error', (err) => {
     console.log(err);
@@ -23,8 +24,24 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('dist'));
+//root page,instantly sends to the main page with the images
 app.get('/', (request, response) => {
     response.sendFile('dist/index.html');
+});
+//Main page,fetching DB images
+app.get('/emp/index', (req, res) => {
+    console.log(Image.find());
+    const employ = Image.find()
+        .then(img => {
+        res.json({
+            img
+        });
+    })
+        .catch(error => {
+        res.json({
+            message: 'Error Occured!'
+        });
+    });
 });
 app.use(express.static('srch'));
 app.get('/srch', (request, response) => {

@@ -14,6 +14,30 @@
     <div class="search">
         <button id="search" value="search">Search</button>
     </div>
-    <script type="module" src="main.js"></script>
+   <div class="imgs" id="ik">
+    
+   </div>
+    <script> 
+    const listEl= document.getElementById('ik')
+    let test=document.getElementById("ts") 
+    
+    fetch("/emp/index")
+    .then(response=>response.json())
+    .then(img=>{
+        
+        console.log(img.img[2])
+      //  test.textContent=`${img.img[2].dir}`
+         img.img.forEach(element => {
+            console.log(element)
+            const listItem = document.createElement('img')
+            const brk = document.createElement('br')
+            listItem.src=element.dir
+            //listItem.innerHTML="<br>"
+            listEl.appendChild(listItem)
+            listEl.appendChild(brk)
+            listItem.innerHTML="<br>"
+        }); 
+    })    
+    </script>
 </body>
 </html>
