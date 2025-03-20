@@ -5,7 +5,6 @@ fetch("/emp/index")
 .then(img=>{
     
      img.img.forEach(element => {
-        console.log("This is the data",element)
         const listItem = document.createElement('img')
         const brk = document.createElement('br')
         listItem.src="./IMAGES/"+element.dir

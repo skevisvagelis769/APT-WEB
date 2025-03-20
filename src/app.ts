@@ -50,7 +50,6 @@ app.get('/emp/index',(req,res)=>{
         })
     })
 })
-/* {$or:[{'dir':dt},{'date':dt}]}  */
 app.post('/emp/srch',(req,res)=>{
     let dt = req.body.dt
     console.log("this is what the api got",dt)
